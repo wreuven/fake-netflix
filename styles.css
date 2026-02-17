@@ -500,14 +500,16 @@ button { cursor: pointer; border: none; background: none; color: white; }
 /* ===== TIME OVERLAY ===== */
 #timeOverlay {
   position: fixed;
-  top: 12px;
+  top: 20px;
   right: 160px;
   z-index: 999;
-  font-family: "Inter", monospace;
-  font-size: 13px;
-  color: rgba(255,255,255,0.7);
-  background: rgba(0,0,0,0.5);
-  padding: 4px 10px;
-  border-radius: 4px;
+  font-family: "Courier New", "Lucida Console", monospace;
+  font-size: 36px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.85);
+  background: rgba(0,0,0,0.6);
+  padding: 8px 18px;
+  border-radius: 6px;
   pointer-events: none;
+  letter-spacing: 2px;
 }
