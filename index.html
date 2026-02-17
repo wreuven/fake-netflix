@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1920">
+  <title>Netflix</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Nav -->
+  <div class="pinning-header">
+    <div class="pinning-header-container">
+      <div class="main-header has-billboard menu-navigation" role="navigation">
+        <a href="#" class="logo" aria-label="Netflix">
+          <svg viewBox="0 0 111 30" class="netflix-logo" focusable="false"><path d="M105.062 14.28L111 30c-1.75-.25-3.499-.563-5.28-.845l-3.345-8.686-3.437 7.969c-1.687-.282-3.344-.376-5.031-.595l6.093-13.453L94.47 0h5.063l3.062 7.874L105.875 0h5.062l-5.875 14.28zM90.47 0h-4.594v27.25c1.5.094 3.062.156 4.594.343V0zm-8.563 26.937c-4.187-.281-8.375-.53-12.656-.625V0h4.687v21.875c2.688.062 5.375.28 7.969.405v4.657zM64.25 10.657v4.687h-6.406V26H53.22V0h13.125v4.687h-8.5v5.97h6.406zm-18.906-5.97V26.25c-1.563 0-3.156 0-4.688.062V4.687h-4.844V0h14.406v4.687h-4.874zM30.75 0v21.875c2.75.062 5.531.219 8.281.375v4.688L26.062 27V0H30.75zM21.938 4.687v5.97H15.5v4.687h6.438V20H15.5v6.25c-1.563.062-3.156.188-4.688.344V0h13.125v4.687h-8.437v.001zm-16.875 22c-1.563.156-3.125.344-4.625.531V0H5.063v26.687z" fill="#e50914"></path></svg>
+        </a>
+        <ul class="tabbed-primary-navigation">
+          <li class="navigation-tab"><a href="#" class="current active">Home</a></li>
+          <li class="navigation-tab"><a href="#">Shows</a></li>
+          <li class="navigation-tab"><a href="#">Movies</a></li>
+          <li class="navigation-tab"><a href="#">Games</a></li>
+          <li class="navigation-tab"><a href="#">New &amp; Popular</a></li>
+          <li class="navigation-tab"><a href="#">My List</a></li>
+          <li class="navigation-tab"><a href="#">Browse by Languages</a></li>
+        </ul>
+        <div class="secondary-navigation">
+          <div class="nav-element">
+            <button class="searchTab" aria-label="Search">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none"><path fill="currentColor" fill-rule="evenodd" d="M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0m-1.38 7.03a9 9 0 1 1 1.41-1.41l5.68 5.67-1.42 1.42z" clip-rule="evenodd"></path></svg>
+            </button>
+          </div>
+          <div class="nav-element"><a href="#">Kids</a></div>
+          <div class="nav-element">
+            <button class="notifications-menu" aria-label="Notifications">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none"><path fill="currentColor" fill-rule="evenodd" d="M13 4.07A7 7 0 0 1 19 11v4.25q1.58.12 3.1.28l-.2 2a93 93 0 0 0-19.8 0l-.2-2q1.52-.15 3.1-.28V11a7 7 0 0 1 6-6.93V2h2zm4 11.06V11a5 5 0 0 0-10 0v4.13a97 97 0 0 1 10 0m-8.37 4.24C8.66 20.52 10.15 22 12 22s3.34-1.48 3.37-2.63c.01-.22-.2-.37-.42-.37h-5.9c-.23 0-.43.15-.42.37" clip-rule="evenodd"></path></svg>
+            </button>
+          </div>
+          <div class="nav-element">
+            <div class="account-dropdown-button">
+              <img class="profile-icon" src="assets/thumbnails/thumb-00.png" alt="">
+              <span class="caret"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Billboard -->
+  <div class="billboard-row">
+    <div class="billboard">
+      <div class="billboard-motion">
+        <video autoplay muted loop playsinline class="hero-video">
+          <source src="assets/videos/hero.webm" type="video/webm">
+        </video>
+        <div class="hero-vignette"></div>
+      </div>
+      <div class="billboard-info">
+        <div class="logo-and-text">
+          <span class="billboard-badge">N  S E R I E S</span>
+          <h1 class="billboard-title">SINTEL</h1>
+          <p class="billboard-synopsis">An epic animated short film following a young woman's quest to find her lost baby dragon, leading her on a journey of heartbreak and redemption.</p>
+        </div>
+        <div class="billboard-actions">
+          <button class="btn-play"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M5 3v18l15-9z" fill="black"/></svg> Play</button>
+          <button class="btn-more-info"><svg viewBox="0 0 24 24" width="24" height="24"><circle cx="12" cy="12" r="10" stroke="white" stroke-width="2" fill="none"/><path d="M12 8v8M8 12h8" stroke="white" stroke-width="2"/></svg> More Info</button>
+        </div>
+      </div>
+      <div class="billboard-controls">
+        <button class="btn-mute" aria-label="Mute">
+          <svg viewBox="0 0 24 24" width="24" height="24"><path fill="white" d="M11 5L6 9H2v6h4l5 4V5zM15.54 8.46a5 5 0 0 1 0 7.07l-1.42-1.42a3 3 0 0 0 0-4.24l1.42-1.41zM19.07 5.93a9 9 0 0 1 0 12.73l-1.41-1.41a7 7 0 0 0 0-9.9l1.41-1.42z"/></svg>
+        </button>
+        <span class="maturity-rating">16+</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content Rows -->
+  <div class="lolomoContainer" id="lolomo">
+    <!-- Rows will be generated by JS -->
+  </div>
+
+  <!-- Hover Preview Popup -->
+  <div class="preview-modal" id="previewModal">
+    <div class="preview-modal-container">
+      <div class="preview-video-container">
+        <video muted loop playsinline class="preview-video">
+          <source src="assets/videos/preview.webm" type="video/webm">
+        </video>
+        <div class="preview-close" id="previewClose">&times;</div>
+      </div>
+      <div class="preview-info">
+        <div class="preview-buttons">
+          <button class="btn-round play"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M5 3v18l15-9z" fill="white"/></svg></button>
+          <button class="btn-round add"><svg viewBox="0 0 24 24" width="20" height="20"><line x1="12" y1="5" x2="12" y2="19" stroke="white" stroke-width="2"/><line x1="5" y1="12" x2="19" y2="12" stroke="white" stroke-width="2"/></svg></button>
+          <button class="btn-round like"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M7 11v9h10V11l-5-7z" stroke="white" stroke-width="2" fill="none"/></svg></button>
+          <span class="preview-spacer"></span>
+          <button class="btn-round expand" id="previewExpand"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M7 10l5 5 5-5" stroke="white" stroke-width="2" fill="none"/></svg></button>
+        </div>
+        <div class="preview-meta">
+          <span class="match-score">97% Match</span>
+          <span class="maturity-badge">16+</span>
+          <span class="duration">1h 32m</span>
+        </div>
+        <div class="preview-tags">Suspenseful &bull; Fantasy &bull; Animation</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Detail Modal -->
+  <div class="detail-modal-overlay" id="detailModal">
+    <div class="detail-modal">
+      <div class="detail-hero">
+        <video muted loop playsinline class="detail-video">
+          <source src="assets/videos/hero.webm" type="video/webm">
+        </video>
+        <div class="detail-close" id="detailClose">&times;</div>
+        <div class="detail-hero-info">
+          <h2 class="detail-title">Title Name</h2>
+          <div class="detail-actions">
+            <button class="btn-play"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M5 3v18l15-9z" fill="black"/></svg> Play</button>
+            <button class="btn-round add"><svg viewBox="0 0 24 24" width="20" height="20"><line x1="12" y1="5" x2="12" y2="19" stroke="white" stroke-width="2"/><line x1="5" y1="12" x2="19" y2="12" stroke="white" stroke-width="2"/></svg></button>
+            <button class="btn-round like"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M7 11v9h10V11l-5-7z" stroke="white" stroke-width="2" fill="none"/></svg></button>
+          </div>
+        </div>
+      </div>
+      <div class="detail-body">
+        <div class="detail-left">
+          <div class="detail-meta">
+            <span class="match-score">97% Match</span>
+            <span class="maturity-badge">16+</span>
+            <span class="duration">2024</span>
+            <span class="duration">1 Season</span>
+          </div>
+          <p class="detail-synopsis">A gripping series that explores the darkest corners of the human experience. Watch as characters navigate impossible situations with courage and determination.</p>
+        </div>
+        <div class="detail-right">
+          <p><span class="detail-label">Cast:</span> Actor One, Actor Two, Actor Three</p>
+          <p><span class="detail-label">Genres:</span> Animation, Fantasy, Adventure</p>
+          <p><span class="detail-label">This show is:</span> Epic, Emotional</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
