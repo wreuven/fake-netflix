@@ -303,37 +303,27 @@
   const barcodeEl = document.getElementById('timeBarcode');
   const textEl = document.getElementById('timeText');
 
-  // Pre-build barcode DOM: HH:MM:SS.mmm = 13 chars, digits get colored blocks, separators get spacers
-  const barcodeSlots = [];
-  // Format: HH MM SS mmm = positions of digits vs separators
-  // "HH:MM:SS.mmm" — indices 2,5,8 are separators
-  for (let i = 0; i < 12; i++) {
-    if (i === 2 || i === 5 || i === 8) {
-      const sep = document.createElement('div');
-      sep.className = 'digit-sep';
-      barcodeEl.appendChild(sep);
-      barcodeSlots.push(null);
-    } else {
-      const block = document.createElement('div');
-      block.className = 'digit-block';
-      barcodeEl.appendChild(block);
-      barcodeSlots.push(block);
-    }
+  // Pre-build barcode DOM: 9 digit blocks for HHMMSSmmm
+  const barcodeBlocks = [];
+  for (let i = 0; i < 9; i++) {
+    const block = document.createElement('div');
+    block.className = 'digit-block';
+    barcodeEl.appendChild(block);
+    barcodeBlocks.push(block);
   }
 
   function updateTime() {
     const now = new Date();
+    const h = String(now.getHours()).padStart(2, '0');
+    const m = String(now.getMinutes()).padStart(2, '0');
+    const s = String(now.getSeconds()).padStart(2, '0');
     const ms = String(now.getMilliseconds()).padStart(3, '0');
-    const timeStr = now.toLocaleTimeString('en-GB', { hour12: false }) + '.' + ms;
+    const digits = h + m + s + ms; // 9 digits
+    const timeStr = h + ':' + m + ':' + s + '.' + ms;
     textEl.textContent = timeStr;
 
-    // timeStr = "HH:MM:SS.mmm" (12 chars)
-    for (let i = 0; i < 12; i++) {
-      if (barcodeSlots[i] === null) continue;
-      const d = parseInt(timeStr[i]);
-      if (!isNaN(d)) {
-        barcodeSlots[i].style.backgroundColor = DIGIT_COLORS[d];
-      }
+    for (let i = 0; i < 9; i++) {
+      barcodeBlocks[i].style.backgroundColor = DIGIT_COLORS[parseInt(digits[i])];
     }
     requestAnimationFrame(updateTime);
   }

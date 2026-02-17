@@ -512,15 +512,10 @@ button { cursor: pointer; border: none; background: none; color: white; }
 }
 #timeBarcode {
   display: flex;
-  gap: 2px;
+  gap: 0;
 }
 #timeBarcode .digit-block {
   width: 24px;
-  height: 24px;
-  border-radius: 2px;
-}
-#timeBarcode .digit-sep {
-  width: 8px;
   height: 24px;
 }
 #timeText {
