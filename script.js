@@ -300,34 +300,42 @@
     '#FF66AA', // 9 Pink
   ];
 
+  const timeOverlay = document.getElementById('timeOverlay');
   const barcodeEl = document.getElementById('timeBarcode');
   const textEl = document.getElementById('timeText');
 
-  // Pre-build barcode DOM: 9 digit blocks for HHMMSSmmm
-  const barcodeBlocks = [];
-  for (let i = 0; i < 9; i++) {
-    const block = document.createElement('div');
-    block.className = 'digit-block';
-    barcodeEl.appendChild(block);
-    barcodeBlocks.push(block);
-  }
+  // Check URL param: ?timecode=on
+  const showTimecode = new URLSearchParams(window.location.search).get('timecode') === 'on';
 
-  function updateTime() {
-    const now = new Date();
-    const h = String(now.getHours()).padStart(2, '0');
-    const m = String(now.getMinutes()).padStart(2, '0');
-    const s = String(now.getSeconds()).padStart(2, '0');
-    const ms = String(now.getMilliseconds()).padStart(3, '0');
-    const digits = h + m + s + ms; // 9 digits
-    const timeStr = h + ':' + m + ':' + s + '.' + ms;
-    textEl.textContent = timeStr;
+  if (showTimecode) {
+    timeOverlay.style.display = 'flex';
 
+    // Pre-build barcode DOM: 9 digit blocks for HHMMSSmmm
+    const barcodeBlocks = [];
     for (let i = 0; i < 9; i++) {
-      barcodeBlocks[i].style.backgroundColor = DIGIT_COLORS[parseInt(digits[i])];
+      const block = document.createElement('div');
+      block.className = 'digit-block';
+      barcodeEl.appendChild(block);
+      barcodeBlocks.push(block);
     }
-    requestAnimationFrame(updateTime);
+
+    function updateTime() {
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2, '0');
+      const m = String(now.getMinutes()).padStart(2, '0');
+      const s = String(now.getSeconds()).padStart(2, '0');
+      const ms = String(now.getMilliseconds()).padStart(3, '0');
+      const digits = h + m + s + ms; // 9 digits
+      const timeStr = h + ':' + m + ':' + s + '.' + ms;
+      textEl.textContent = timeStr;
+
+      for (let i = 0; i < 9; i++) {
+        barcodeBlocks[i].style.backgroundColor = DIGIT_COLORS[parseInt(digits[i])];
+      }
+      requestAnimationFrame(updateTime);
+    }
+    updateTime();
   }
-  updateTime();
 
   simulateSession();
 

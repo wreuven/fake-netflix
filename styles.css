@@ -506,7 +506,7 @@ button { cursor: pointer; border: none; background: none; color: white; }
   background: rgba(0,0,0,0.8);
   padding: 6px 10px;
   pointer-events: none;
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 4px;
 }
