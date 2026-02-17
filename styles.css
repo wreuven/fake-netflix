@@ -496,3 +496,18 @@ button { cursor: pointer; border: none; background: none; color: white; }
   margin-bottom: 8px;
 }
 .detail-label { color: #777; }
+
+/* ===== TIME OVERLAY ===== */
+#timeOverlay {
+  position: fixed;
+  top: 12px;
+  right: 160px;
+  z-index: 999;
+  font-family: "Inter", monospace;
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+  background: rgba(0,0,0,0.5);
+  padding: 4px 10px;
+  border-radius: 4px;
+  pointer-events: none;
+}

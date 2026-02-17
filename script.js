@@ -286,6 +286,16 @@
     simulateSession();
   }
 
+  // === TIME OVERLAY ===
+  const timeEl = document.getElementById('timeOverlay');
+  function updateTime() {
+    const now = new Date();
+    const ms = String(now.getMilliseconds()).padStart(3, '0');
+    timeEl.textContent = now.toLocaleTimeString('en-GB', { hour12: false }) + '.' + ms;
+    requestAnimationFrame(updateTime);
+  }
+  updateTime();
+
   simulateSession();
 
 })();
