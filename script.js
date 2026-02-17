@@ -286,12 +286,55 @@
     simulateSession();
   }
 
-  // === TIME OVERLAY ===
-  const timeEl = document.getElementById('timeOverlay');
+  // === TIME OVERLAY WITH COLOR BARCODE ===
+  const DIGIT_COLORS = [
+    '#FF0000', // 0 Red
+    '#00CC00', // 1 Green
+    '#0066FF', // 2 Blue
+    '#FFFF00', // 3 Yellow
+    '#FF00FF', // 4 Magenta
+    '#00FFFF', // 5 Cyan
+    '#FF8800', // 6 Orange
+    '#FFFFFF', // 7 White
+    '#88FF00', // 8 Lime
+    '#FF66AA', // 9 Pink
+  ];
+
+  const barcodeEl = document.getElementById('timeBarcode');
+  const textEl = document.getElementById('timeText');
+
+  // Pre-build barcode DOM: HH:MM:SS.mmm = 13 chars, digits get colored blocks, separators get spacers
+  const barcodeSlots = [];
+  // Format: HH MM SS mmm = positions of digits vs separators
+  // "HH:MM:SS.mmm" — indices 2,5,8 are separators
+  for (let i = 0; i < 12; i++) {
+    if (i === 2 || i === 5 || i === 8) {
+      const sep = document.createElement('div');
+      sep.className = 'digit-sep';
+      barcodeEl.appendChild(sep);
+      barcodeSlots.push(null);
+    } else {
+      const block = document.createElement('div');
+      block.className = 'digit-block';
+      barcodeEl.appendChild(block);
+      barcodeSlots.push(block);
+    }
+  }
+
   function updateTime() {
     const now = new Date();
     const ms = String(now.getMilliseconds()).padStart(3, '0');
-    timeEl.textContent = now.toLocaleTimeString('en-GB', { hour12: false }) + '.' + ms;
+    const timeStr = now.toLocaleTimeString('en-GB', { hour12: false }) + '.' + ms;
+    textEl.textContent = timeStr;
+
+    // timeStr = "HH:MM:SS.mmm" (12 chars)
+    for (let i = 0; i < 12; i++) {
+      if (barcodeSlots[i] === null) continue;
+      const d = parseInt(timeStr[i]);
+      if (!isNaN(d)) {
+        barcodeSlots[i].style.backgroundColor = DIGIT_COLORS[d];
+      }
+    }
     requestAnimationFrame(updateTime);
   }
   updateTime();

@@ -500,16 +500,34 @@ button { cursor: pointer; border: none; background: none; color: white; }
 /* ===== TIME OVERLAY ===== */
 #timeOverlay {
   position: fixed;
-  top: 20px;
-  right: 160px;
+  top: 0;
+  left: 0;
   z-index: 999;
+  background: rgba(0,0,0,0.8);
+  padding: 6px 10px;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+#timeBarcode {
+  display: flex;
+  gap: 2px;
+}
+#timeBarcode .digit-block {
+  width: 24px;
+  height: 24px;
+  border-radius: 2px;
+}
+#timeBarcode .digit-sep {
+  width: 8px;
+  height: 24px;
+}
+#timeText {
   font-family: "Courier New", "Lucida Console", monospace;
-  font-size: 36px;
+  font-size: 18px;
   font-weight: 700;
   color: rgba(255,255,255,0.85);
-  background: rgba(0,0,0,0.6);
-  padding: 8px 18px;
-  border-radius: 6px;
-  pointer-events: none;
   letter-spacing: 2px;
+  text-align: center;
 }
